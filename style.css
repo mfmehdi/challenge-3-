@@ -1,0 +1,11 @@
+
+body{
+	background-color: #7fc8f0;  /*a*/
+}
+header{
+	font-family: sans-serif;	/*b*/
+}
+input{
+	height:  100px;				/*c*/
+	width: 300px;
+}

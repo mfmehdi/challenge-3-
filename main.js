@@ -12,9 +12,18 @@
 //lets make an employee profile using closures
 
 function employee(name, salary) {
+ 
     return {
         name: name,
-        salary: salary
+        salary: salary,
+        listFriend:[],
+        sayMyName:sayMyName,
+        sayHello:sayHello,
+        increaseSalary:increaseSalary,
+        addFriend:addFriend,
+        listFriends:listFriends,
+
+
     }
 }
 
@@ -29,24 +38,44 @@ var employeeC = employee("Sara", 150);
 // employeeB.sayMyName(); // "Mark"
 
 
+function sayMyName(){
+    return this.name;
+}
+
 //now modify that closure and add a function that says hello to the employee name;
 
 // employeeA.sayHello(); // hello jack
 // employeeB.sayHello(); // hello Mark
 
+function sayHello(){
+    return "hello "+this.name;
+}
+
 //modify your closure and add function increaseSalary that increases the salary for the employee by n value and return it.
 //employeeA.increaseSalary(50); // "your salary is 150$"
+
+function increaseSalary(n){
+    return this.salary=this.salary+n;
+}
 
 //how about we let jack and mark meet togther!
 //modify your closure and add function addFriend that accepts an object as a parameter, and let jack meets his friends.
 
+
 // employeeA.addFriend(employeeB); // "you just became friend with Mark"
 // employeeA.addFriend(employeeC); // "you just became friend with Mark and Sara"
+
+function addFriend(employee){
+     this.listFriend.push(employee.name);
+     return "you just became friend with "+this.listFriend.join(" and ");
+}
 
 //modify your closure to tell mark how many friends does he have.
 
 // employeeA.listFriends(); // "you have 2 friends"
-
+function listFriends(){
+    return "you have "+this.listFriend.length +" friends"
+}
 
 //=============================================================================
 /*                                  Q2                                       */
@@ -70,8 +99,46 @@ var employeeC = employee("Sara", 150);
 
 // Write your code here .....
 
+function Pet(name){
+    return {
+        name:name,
+        addInfo:addInfo,
+        increaseAge:increaseAge,
+        availability:false,
+        checkAvailability:checkAvailability,
+        changeState:changeState
+
+
+    }
+}
+
+
+//a-b---------------
+ function addInfo(age, owner, gender, species){
+    this["age"]=age;
+    this["owner"]=owner;
+    this["gender"]=gender;
+    this["species"]=species;
+ }
+//c-------------------------------
+function increaseAge(n){
+   this.age=this.age+n;
+
+}
+//d-----------------------
+
+function checkAvailability(){
+    return this.availability;
+}
+
+//f---------------------
+
+function changeState(){
+    return this.availability=!this.availability;
+}
 
 // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
+//Yes I am
 
 //=============================================================================
 /*                                  Q3                                       */
@@ -103,6 +170,15 @@ function reduce(array, f, acc) {
 
 // Write your code here .....
 
+function max(array){
+
+  return   reduce(array,(acc,number)=>{
+        if(number > acc)
+            { acc=number;}
+        return acc
+    });
+
+}
 
 
 
@@ -133,6 +209,10 @@ function reduce(array, f, acc) {
 // 3. Write javascript function when user type text inside the input text and click the "Add" 
 //     button it will add the text to the ul element.
 
-
+$(#btn).on(click){
+    $( "ul li" ).addClass(function( ) {
+  return  $(input).html;
+});
+}
 
                               //  Good Luck :))
